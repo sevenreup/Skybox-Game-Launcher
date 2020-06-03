@@ -41,6 +41,7 @@
   },
   "scripts": {
     "electron": "cross-env NODE_ENV=dev nodemon --exec \"\"electron .\"\"",
+    "electron:mac": "electron .",
     "electron-build": "electron-builder",
     "start": "cross-env BROWSER=none npm run react-start",
     "react-start": "react-scripts start",
