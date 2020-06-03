@@ -1,25 +1,25 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NavigationBar from "./components/navigation/NavigationBar";
 import "./App.css";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
+import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
   return (
-    <main className="App">
-      <div className="obe"></div>
-      
+    <React.Fragment>
       <Router>
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/settings">
-            <Settings />
-          </Route>
-        </Switch>
+        <NavigationBar />
+        <Sidebar />
+        <main className="content">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/settings" component={Settings} />
+          </Switch>
+        </main>
       </Router>
-    </main>
+    </React.Fragment>
   );
 }
 

@@ -4,7 +4,7 @@ export default class extends PureComponent {
 
     render() {
         return (
-            <div>Home</div>
+            <div className="page-wrapper">Home</div>
         )
     }
 }
