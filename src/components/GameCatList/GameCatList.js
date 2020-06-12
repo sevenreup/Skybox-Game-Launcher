@@ -30,11 +30,11 @@ const styles = theme => ({
 
 class GameCatList extends PureComponent {
     games = [
-        { name: 'one', img: '', link: '' },
-        { name: 'three', img: '', link: '' },
-        { name: 'four', img: '', link: '' },
-        { name: 'five', img: '', link: '' },
-        { name: 'two', img: '', link: '' }
+        { name: 'one', img: 'image/image1.jpg', link: '' },
+        { name: 'three', img: 'image/image2.jpg', link: '' },
+        { name: 'four', img: 'image/image3.jpg', link: '' },
+        { name: 'five', img: 'image/image4.jpg', link: '' },
+        { name: 'two', img: 'image/image5.jpg', link: '' }
     ]
     render() {
         const { classes } = this.props;
@@ -46,7 +46,7 @@ class GameCatList extends PureComponent {
                         return <GridListTile key={game.name}>
                             <Card>
                                 <CardActionArea>
-                                    <CardMedia className={classes.cardImage} image="logo512.png" component="img" />
+                                    <CardMedia className={classes.cardImage} image={game.img} component="img" />
                                 </CardActionArea>
                             </Card>
                         </GridListTile>

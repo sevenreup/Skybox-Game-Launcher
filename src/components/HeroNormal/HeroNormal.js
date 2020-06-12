@@ -1,26 +1,37 @@
 import React, { PureComponent } from "react";
-import Smooth from '../../opengl/components/Smooth';
-import Plane from '../../opengl/gl/Plane';
-import { preloadImages } from '../../opengl/utils';
+import { withStyles } from "@material-ui/core";
 
-export default class HeroMain extends PureComponent {
+const style = theme => ({
+    image: {
+        display: 'block',
+        boxSizing: 'border-box',
+        background: 'url(image/image2.jpg) no-repeat',
+        width: '100%',
+        height: 300,
+        objectFit: 'cover',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    },
+    imageBack: {
+        background: 'yellow',
+        opacity: 0.3,
+        width: '100%',
+        height: 300,
+        objectFit: 'cover',
+    }
+});
+
+class HeroMain extends PureComponent {
     constructor() {
-        super()
-        preloadImages().then(() => {
-            document.body.classList.remove('loading');
-
-            const elements = document.querySelectorAll('.js-plane');
-            elements.forEach((el, index) => new Plane().init(el, index));
-            const smooth = new Smooth();
-        });
+        super();
     }
     render() {
+        const { classes } = this.props;
         return <div data-scroll>
             <div data-scroll-content>
                 <div className="item">
-                    <figure className="item__fig js-plane">
-                        <div className="aspect"></div>
-                        <img className="item__img" src="logo512.png" alt="Some image" />
+                    <figure className={classes.image}>
+                        <div className={classes.imageBack}/>
                     </figure>
                 </div>
 
@@ -28,3 +39,4 @@ export default class HeroMain extends PureComponent {
         </div>
     }
 }
+export default withStyles(style, { withTheme: true })(HeroMain);
