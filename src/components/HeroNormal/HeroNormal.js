@@ -13,7 +13,7 @@ const style = theme => ({
         backgroundPosition: 'center',
     },
     imageBack: {
-        background: 'yellow',
+        background: 'black',
         opacity: 0.3,
         width: '100%',
         height: 300,

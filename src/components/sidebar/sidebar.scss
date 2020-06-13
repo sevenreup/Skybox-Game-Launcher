@@ -3,10 +3,29 @@
     height: 100%;
     width: 75px;
     .pinned-games {
-        margin-top: 100px;
+        width: 90%;
+    margin: auto;
+        margin-top: 10px;
+        background: grey;
+        border-radius: 50px;
+        li {
+            &:first {
+                border: 2px red solid;
+            }
+            padding: 0px;
+            margin-top: 10px;
+            a {
+                margin: auto;
+               img {
+            object-fit: cover;
+            height: 60px;
+            width: 60px;
+        } 
+            }
+        }
     }
     .settings {
-        bottom: 0;
-        top: 100%;
+        margin-top: 100px;
+
     }
 }

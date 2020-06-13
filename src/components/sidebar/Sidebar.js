@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./sidebar.scss";
 import { Drawer, ToolBar, Divider } from "../../util/material";
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faHome,faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { Avatar, List, ListItem, withStyles } from "@material-ui/core";
 
 const styles = theme => ({
@@ -17,8 +17,10 @@ const styles = theme => ({
 
 class SideBar extends PureComponent {
   pinnedGames = [
-    { name: 'one', img: '', link: '' },
-    { name: 'two', img: '', link: '' }
+    { name: 'one', img: 'image/image1.jpg', link: '' },
+    { name: 'two', img: 'image/image2.jpg', link: '' },
+    { name: 'two', img: 'image/image3.jpg', link: '' },
+    { name: 'two', img: 'image/image4.jpg', link: '' }
   ]
   constructor() {
     super()
@@ -36,29 +38,28 @@ class SideBar extends PureComponent {
               </Avatar>
             </Link>
           </ListItem>
-          <Divider />
+          <ListItem className="settings">
+            <Link to="/settings">
+              <Avatar>
+                <FontAwesomeIcon icon={faGamepad} />
+              </Avatar>
+            </Link>
+          </ListItem>
           <List className="pinned-games">
             {
               this.pinnedGames.map((game) => {
                 return <ListItem key={game.name}>
                   <Link to={game.link}>
-                  <Avatar src="logo512.png" />
+                    <Avatar src={game.img} />
                   </Link>
                 </ListItem>
               })
             }
           </List>
-          <ListItem className="settings">
-            <Link to="/settings">
-              <Avatar>
-                <FontAwesomeIcon icon={faHome} />
-              </Avatar>
-            </Link>
-          </ListItem>
         </div>
       </Drawer>
     );
   }
 }
 
-export default withStyles(styles, { withTheme: true})(SideBar);
+export default withStyles(styles, { withTheme: true })(SideBar);
