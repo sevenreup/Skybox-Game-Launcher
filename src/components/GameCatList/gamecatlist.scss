@@ -9,41 +9,125 @@
         transform: translateZ(0);
 
         .tile {
-            margin: 0 10px;
-
-            &:hover {
-                .play-button {
-                    display: block !important;
-                }
-            }
-
-            .tile-img {
+            figure {
+                font-family: 'Raleway', Arial, sans-serif;
+                position: relative;
+                overflow: hidden;
+                margin: 10px;
+                min-width: 220px;
+                max-width: 310px;
+                max-height: 220px;
                 width: 100%;
-                height: 180;
-                object-fit: cover;
-                -webkit-user-drag: none;
-            }
+                background: #000000;
+                color: #ffffff;
+                text-align: center;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+                background: #4b2756;
 
-            .caption {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0) 100%);
+                &:hover {
+                    img {
+                        opacity: 1;
+                        transform: scale(1.1);
+                    }
 
-                .tile-name {
-                    color: white;
-                    text-align: center;
+                    h2 {
+                        transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+                    }
+
+                    .play {
+                        transform: translate(0%, -50%);
+                    }
+
+                    &::before {
+                        transform: rotate(110deg) translateY(-150%);
+                    }
+
+                    &::after {
+                        left: -30%;
+                        transform: rotate(110deg) translateY(-50%);
+                    }
                 }
 
-                .play-button {
-                    margin: auto;
-                    height: 30px;
-                    width: 30px;
-                    margin-bottom: 4px;
-                    color: white;
-                    display: none;
+                &::before {
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    content: '';
+                    background: #3b3434;
+                    position: absolute;
+                    transition: all 0.3s ease-in-out;
+                    transform: rotate(110deg) translateY(-50%);
+                }
+
+                &::after {
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    content: '';
+                    background: rgba(243, 0, 0, 0.253);
+                    position: absolute;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    transform: rotate(110deg) translateY(-180%);
+                }
+
+                * {
+                    box-sizing: border-box;
+                    transition: all 0.4s ease-in-out;
+                }
+
+                a {
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    position: absolute;
+                    z-index: 1;
+                }
+
+                img {
+                    max-width: 100%;
+                    position: relative;
+                    opacity: 0.4;
+                }
+
+                figcaption {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                }
+
+                h2 {
+                    position: absolute;
+                    left: 40px;
+                    right: 40px;
+                    display: inline-block;
+                    background: #000000;
+                    transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+                    padding: 12px 5px;
+                    margin: 0;
+                    top: 50%;
+                    text-transform: uppercase;
+                    font-weight: 400;
+
+                    span {
+                        font-weight: 800;
+                    }
+                }
+
+                .play {
+                    position: absolute;
+                    left: 40%;
+                    display: inline-block;
+                    top: 40%;
+                    font-size: 50px;
+                    transform: translate(-3000%, -50%);
+                    z-index: 10;
+                    cursor: pointer;
                 }
             }
         }

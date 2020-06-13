@@ -40,15 +40,14 @@ class GameCatList extends PureComponent {
                 {
                     this.games.map((game) => {
                         return <GridListTile key={game.name} className='tile' onClick={this.goToGame.bind(this, game)} onContextMenu={this.handleContextClick}>
-                            <Card>
-                                <CardActionArea>
-                                    <CardMedia className='tile-image' image={game.img} component="img" />
-                                    <div className='caption'>
-                                        <span className="tile-name">{game.name}</span>
-                                        <FontAwesomeIcon onClick={this.launchGame} className="play-button" icon={faPlayCircle} />
-                                    </div>
-                                </CardActionArea>
-                            </Card>
+                            <figure>
+                                <img src={game.img} />
+                                <figcaption>
+                                    <h2>  <span> {game.name}</span></h2>
+                                    <FontAwesomeIcon onClick={this.launchGame} className="play" icon={faPlayCircle}/>
+                                </figcaption>
+                                <a href="#"></a>
+                            </figure>
                         </GridListTile>
                     })
                 }
@@ -58,7 +57,7 @@ class GameCatList extends PureComponent {
 
     launchGame(e) {
         e.stopPropagation();
-        console.log('ass'); 
+        console.log('ass');
     }
 
     goToGame(game) {
