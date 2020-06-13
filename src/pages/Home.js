@@ -6,7 +6,7 @@ export default class extends PureComponent {
 
     render() {
         return (
-            <div className="page-wrapper">
+            <div className="home-wrapper">
                 <HeroMain/>
                 <GameCatList />
             </div>

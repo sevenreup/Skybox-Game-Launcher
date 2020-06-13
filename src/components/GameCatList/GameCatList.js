@@ -30,11 +30,11 @@ const styles = theme => ({
 
 class GameCatList extends PureComponent {
     games = [
-        { name: 'one', img: 'image/image1.jpg', link: '' },
-        { name: 'three', img: 'image/image2.jpg', link: '' },
-        { name: 'four', img: 'image/image3.jpg', link: '' },
-        { name: 'five', img: 'image/image4.jpg', link: '' },
-        { name: 'two', img: 'image/image5.jpg', link: '' }
+        { name: 'one', img: 'image/image1.jpg', link: '1' },
+        { name: 'three', img: 'image/image2.jpg', link: '1' },
+        { name: 'four', img: 'image/image3.jpg', link: '1' },
+        { name: 'five', img: 'image/image4.jpg', link: '1' },
+        { name: 'two', img: 'image/image5.jpg', link: '1' }
     ]
     render() {
         const { classes } = this.props;

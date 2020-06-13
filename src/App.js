@@ -4,6 +4,8 @@ import NavigationBar from "./components/navigation/NavigationBar";
 import "./App.scss";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
+import GameSingle from "./pages/GameSingle";
+import AllGames from "./pages/AllGames";
 import Sidebar from "./components/sidebar/Sidebar";
 import { makeStyles, Container, Typography } from "@material-ui/core";
 
@@ -37,6 +39,8 @@ function App() {
             <div className={classes.toolbar} />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/all" component={AllGames} />
+              <Route exact path="/game/:id" component={GameSingle} />
               <Route exact path="/settings" component={Settings} />
             </Switch>
           </main>

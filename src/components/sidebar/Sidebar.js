@@ -17,10 +17,10 @@ const styles = theme => ({
 
 class SideBar extends PureComponent {
   pinnedGames = [
-    { name: 'one', img: 'image/image1.jpg', link: '' },
-    { name: 'two', img: 'image/image2.jpg', link: '' },
-    { name: 'two', img: 'image/image3.jpg', link: '' },
-    { name: 'two', img: 'image/image4.jpg', link: '' }
+    { name: 'one', img: 'image/image1.jpg', link: '1' },
+    { name: 'two', img: 'image/image2.jpg', link: '2' },
+    { name: 'two', img: 'image/image3.jpg', link: '3' },
+    { name: 'two', img: 'image/image4.jpg', link: '4' }
   ]
   constructor() {
     super()
@@ -38,8 +38,8 @@ class SideBar extends PureComponent {
               </Avatar>
             </Link>
           </ListItem>
-          <ListItem className="settings">
-            <Link to="/settings">
+          <ListItem className="all">
+            <Link to="/all">
               <Avatar>
                 <FontAwesomeIcon icon={faGamepad} />
               </Avatar>
@@ -49,7 +49,7 @@ class SideBar extends PureComponent {
             {
               this.pinnedGames.map((game) => {
                 return <ListItem key={game.name}>
-                  <Link to={game.link}>
+                  <Link to={`/game/${game.link}`}>
                     <Avatar src={game.img} />
                   </Link>
                 </ListItem>
