@@ -14,6 +14,9 @@ const styles = theme => ({
         // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
         transform: 'translateZ(0)',
     },
+    tile: {
+        margin: '0 10px',
+    },
     title: {
         color: theme.palette.primary.light,
     },
@@ -24,7 +27,8 @@ const styles = theme => ({
     cardImage: {
         width: '100%',
         height: 180,
-        objectFit: 'contain'
+        objectFit: 'cover',
+        userDrag: 'none',
     }
 });
 
@@ -43,7 +47,7 @@ class GameCatList extends PureComponent {
             <GridList cols={3.5} className={classes.gridList}>
                 {
                     this.games.map((game) => {
-                        return <GridListTile key={game.name}>
+                        return <GridListTile key={game.name} className={classes.tile}>
                             <Card>
                                 <CardActionArea>
                                     <CardMedia className={classes.cardImage} image={game.img} component="img" />

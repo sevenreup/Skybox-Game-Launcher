@@ -19,8 +19,8 @@ class SideBar extends PureComponent {
   pinnedGames = [
     { name: 'one', img: 'image/image1.jpg', link: '1' },
     { name: 'two', img: 'image/image2.jpg', link: '2' },
-    { name: 'two', img: 'image/image3.jpg', link: '3' },
-    { name: 'two', img: 'image/image4.jpg', link: '4' }
+    { name: 'three', img: 'image/image3.jpg', link: '3' },
+    { name: 'four', img: 'image/image4.jpg', link: '4' }
   ]
   constructor() {
     super()

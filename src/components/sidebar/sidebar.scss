@@ -9,8 +9,8 @@
         background: grey;
         border-radius: 50px;
         li {
-            &:first {
-                border: 2px red solid;
+            &:first-child {
+                margin-top: 0px;
             }
             padding: 0px;
             margin-top: 10px;
