@@ -14,7 +14,6 @@ import { Avatar, List, ListItem, withStyles } from "@material-ui/core";
 const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 });
-
 class SideBar extends PureComponent {
   pinnedGames = [
     { name: 'one', img: 'image/image1.jpg', link: '1' },

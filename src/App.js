@@ -37,7 +37,7 @@ function App() {
           <NavigationBar />
           <Sidebar />
           <main className="content" className={classes.content}>
-            <div className={classes.toolbar} />
+            {/* <div className={classes.toolbar} /> */}
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/all" component={AllGames} />

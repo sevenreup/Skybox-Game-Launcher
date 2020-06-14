@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Avatar, List, ListItem, withStyles, GridList, CardMedia, GridListTile, Card, CardActionArea } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
@@ -39,7 +39,7 @@ class GameCatList extends PureComponent {
             <GridList cols={3.5} className='grid-list'>
                 {
                     this.games.map((game) => {
-                        return <GridListTile key={game.name} className='tile' onClick={this.goToGame.bind(this, game)} onContextMenu={this.handleContextClick}>
+                        return <GridListTile key={game.name} className='tile' onContextMenu={this.handleContextClick}>
                             <figure>
                                 <img src={game.img} />
                                 <figcaption>
@@ -47,6 +47,7 @@ class GameCatList extends PureComponent {
                                     <FontAwesomeIcon onClick={this.launchGame} className="play" icon={faPlayCircle}/>
                                 </figcaption>
                                 <a href="#"></a>
+                                <Link to={{pathname: `/game/${game.link}`, state: {game: game}}}/>
                             </figure>
                         </GridListTile>
                     })
@@ -58,10 +59,6 @@ class GameCatList extends PureComponent {
     launchGame(e) {
         e.stopPropagation();
         console.log('ass');
-    }
-
-    goToGame(game) {
-        this.props.history.push(`/game/${game.link}`)
     }
 
     handleContextClick(e) {
