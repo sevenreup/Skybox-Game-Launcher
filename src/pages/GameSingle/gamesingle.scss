@@ -1,0 +1,16 @@
+.single-wrapper {
+    .single-content {
+        .single-hero {
+            .hero-image {
+                display: block;
+                box-sizing: border-box;
+                width: 100%;
+                object-fit: cover;
+                background-size: cover !important;
+                background-position: center !important;
+            }
+        }
+    }
+
+    .single-sidebar {}
+}

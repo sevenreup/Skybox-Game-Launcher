@@ -7,7 +7,8 @@ import './gamecatlist.scss';
 
 const styles = theme => ({
     root: {
-        backgroundColor: theme.palette.background.paper,
+        // backgroundColor: theme.palette.background.paper,
+        
     },
     title: {
         color: theme.palette.primary.light,

@@ -12,7 +12,12 @@ import { faHome,faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { Avatar, List, ListItem, withStyles } from "@material-ui/core";
 
 const styles = theme => ({
-  toolbar: theme.mixins.toolbar,
+  drawer: {
+    background: '#000'
+  },
+  content: {
+
+  }
 });
 class SideBar extends PureComponent {
   pinnedGames = [
@@ -27,9 +32,9 @@ class SideBar extends PureComponent {
   render() {
     const { classes } = this.props;
     return (
-      <Drawer variant="permanent" className="sidebar">
+      <Drawer variant="permanent" className={`${classes.drawer} sidebar`} color="#000">
         <ToolBar />
-        <div className="drawer-contents">
+        <div className={`drawer-contents ${classes.content}`}>
           <ListItem>
             <Link to="/">
               <Avatar>
@@ -48,7 +53,7 @@ class SideBar extends PureComponent {
             {
               this.pinnedGames.map((game) => {
                 return <ListItem key={game.name}>
-                  <Link to={`/game/${game.link}`}>
+                  <Link to={{pathname: `/game/${game.link}`, state: {game: game}}}>
                     <Avatar src={game.img} />
                   </Link>
                 </ListItem>
