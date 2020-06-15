@@ -1,23 +1,42 @@
 .sidebar {
     padding-top: 10px !important;
+    background: #ffffff;
+    box-shadow: inset -20px 20px 60px #d9d9d9,
+        inset 20px -20px 60px #ffffff;
+
     .icon-btn {
-        background: gray;
         margin: auto;
-        color: white;
+        color: #001f3fab;
+        background: linear-gradient(225deg, #e6e6e6, #ffffff);
+        box-shadow: -20px 20px 60px #d9d9d9,
+            20px -20px 60px #ffffff;
+
+        &:focus,
+        &:hover {
+            background: #ffffff;
+            box-shadow: inset -20px 20px 60px #d9d9d9,
+                inset 20px -20px 60px #ffffff;
+        }
+
     }
+
     .all {
         margin-top: 80px;
     }
 
     .pinnedGames {
-        margin: 8px 14px;
-        background: black;
+        margin: 30px 6px;
         border-radius: 50px;
+        border-radius: 50px;
+        background: linear-gradient(225deg, #e6e6e6, #ffffff);
+        box-shadow: -20px 20px 60px #d9d9d9,
+            20px -20px 60px #ffffff;
 
         .pin-game {
             background: transparent;
             padding: unset;
             margin: 10px auto auto auto;
+            border: 0em;
 
             &:first-child {
                 margin-top: 3px;

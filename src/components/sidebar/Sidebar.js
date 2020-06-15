@@ -24,7 +24,7 @@ class sidebar extends PureComponent {
                 </Nav.Item>
                 <Nav.Item className="all">
                     <Link to="/all">
-                        <div className="icon-btn btn-xl">
+                        <div className="icon-btn btn-xl neu">
                             <FontAwesomeIcon icon={faGamepad} />
                         </div>
                     </Link>
