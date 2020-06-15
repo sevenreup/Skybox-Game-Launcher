@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { withRouter, matchPath, Link } from 'react-router-dom';
 
 const Styles = styled.div`
-  .navbar { background-color: transparent; }
+  .navbar { background-color: transparent; z-index: 100; }
   a, .navbar-nav, .navbar-light .nav-link {
     color: #9FFFCB;
     &:hover { color: white; }

@@ -8,14 +8,14 @@
         margin: auto;
         color: #001f3fab;
         background: linear-gradient(225deg, #e6e6e6, #ffffff);
-        box-shadow: -20px 20px 60px #d9d9d9,
-            20px -20px 60px #ffffff;
+        box-shadow: -8px 8px 13px #cfcfcf,
+            8px -8px 13px #ffffff;
 
         &:focus,
         &:hover {
-            box-shadow: inset -20px 20px 60px #3ea6eb,
-                inset 20px -20px 60px #26afee;
-                color: white;
+            background: #ffffff;
+            box-shadow: inset -8px 8px 13px #cfcfcf,
+                inset 8px -8px 13px #ffffff;
         }
 
     }
@@ -26,11 +26,10 @@
 
     .pinnedGames {
         margin: 30px 6px;
-        border-radius: 50px;
-        border-radius: 50px;
-        background: linear-gradient(225deg, #e6e6e6, #ffffff);
-        box-shadow: -20px 20px 60px #d9d9d9,
-            20px -20px 60px #ffffff;
+        border-radius: 34px;
+        background: #ffffff;
+        box-shadow: inset -7px 7px 12px #e8e8e8, 
+                    inset 7px -7px 12px #ffffff;
 
         .pin-game {
             background: transparent;
@@ -52,7 +51,7 @@
 
                 &:hover {
                     box-shadow: inset 8px 8px 16px 0 rgba(13, 121, 223, 0.2),
-                    inset -8px -8px 16px 0 rgba(41, 177, 231, 0.4); 
+                        inset -8px -8px 16px 0 rgba(41, 177, 231, 0.4);
                 }
             }
 
