@@ -36,7 +36,7 @@ class sidebar extends PureComponent {
                                 return (
                                     <ListGroup.Item key={game.name} className="pin-game">
                                         <Link to={game.link}>
-                                            <img src={game.img} />
+                                            <span><img src={game.img} /></span>
                                         </Link>
                                     </ListGroup.Item>
                                 )
