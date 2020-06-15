@@ -1,9 +1,18 @@
 .icon-btn {
-    background: gray;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
     text-align: center;
-    padding: 10px;
-    border-radius: 50px;
-    color: white;
-    display: block;
-    padding: 0.5rem 1rem;
+    font-size: 12px;
+    line-height: 1.42857;
+
+    &.btn-xl {
+        width: 40px;
+        height: 40px;
+        padding: 9px 0px;
+        border-radius: 35px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
 }

@@ -16,18 +16,18 @@ class sidebar extends PureComponent {
         return (
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
                 <Nav.Item>
-                    <Nav.Link to="/">
-                        <div className="icon-btn">
+                    <Link to="/">
+                        <div className="icon-btn btn-xl">
                             <FontAwesomeIcon icon={faHome} />
                         </div>
-                    </Nav.Link>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item className="all">
-                    <Nav.Link to="/all">
-                        <div className="icon-btn">
+                    <Link to="/all">
+                        <div className="icon-btn btn-xl">
                             <FontAwesomeIcon icon={faGamepad} />
                         </div>
-                    </Nav.Link>
+                    </Link>
                 </Nav.Item>
                 <Nav.Item className="pinnedGames">
                     <ListGroup variant="flush">
