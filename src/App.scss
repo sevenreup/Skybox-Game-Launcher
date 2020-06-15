@@ -1,38 +1,32 @@
-.launcher-container {
-    min-height: 100vh;
+$side-width:80px;
 
-    .background {
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+
+    .sidebar {
+        max-width: $side-width;
         min-height: 100vh;
+        position: fixed;
+        z-index: 10000;
+        padding: 0px;
+    }
+
+    .footer {
+        margin-left: $side-width;
+        background-color: #222;
+        color: white;
+    }
+
+    .appbar {
+        margin-left: $side-width;
+    }
+
+    .content {
         width: 100%;
-        position: absolute;
-        top: 0;
-        z-index: -3;
-        filter: blur(30px);
-
-
-        .bg-filter {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            filter: blur(8px);
-            background-blend-mode: exclusion;
-            filter: blur(8px);
-            z-index: -2;
-        }
-
-        .bg-noise {
-            height: 100%;
-            min-height: 100vh;
-            border: 1px solid #fff;
-            background: black;
-            background-size: cover;
-            position: absolute;
-            width: 100%;
-            filter: blur(4px);
-            opacity: .6;
-            z-index: -1;
-        }
-
+        min-height: 100vh;
+        transition: all 0.3s;
+        margin-left: $side-width;
     }
 }

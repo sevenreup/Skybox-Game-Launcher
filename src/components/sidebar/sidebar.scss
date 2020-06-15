@@ -1,31 +1,32 @@
 .sidebar {
-    // position: fixed; 
-    height: 100%;
-    width: 75px;
-    .pinned-games {
-        width: 90%;
-    margin: auto;
-        margin-top: 10px;
-        background: grey;
+    .all {
+        margin-top: 80px;
+    }
+
+    .pinnedGames {
+        margin: 8px 14px;
+        background: black;
         border-radius: 50px;
-        li {
+
+        .pin-game {
+            background: transparent;
+            padding: unset;
+            margin: 10px auto auto auto;
+
             &:first-child {
-                margin-top: 0px;
+                margin-top: 3px;
             }
-            padding: 0px;
-            margin-top: 10px;
-            a {
-                margin: auto;
-               img {
-            object-fit: cover;
-            height: 60px;
-            width: 60px;
-        } 
+
+            &:last-child {
+                margin-bottom: 3px;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50px;
             }
         }
-    }
-    .all {
-        margin-top: 100px;
 
     }
 }
