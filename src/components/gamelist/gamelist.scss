@@ -1,0 +1,86 @@
+.gamelist {
+    padding: 20px;
+
+    .game-grid {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        column-gap: 50px;
+        row-gap: 15px;
+
+
+        .game-item {
+            .game-circle {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background: #ffffff;
+                box-shadow: inset 13px -13px 36px #ababab,
+                    inset -13px 13px 36px #ffffff;
+                border-radius: 20px;
+
+            }
+
+            &:hover {
+                .game-image {
+                    // filter: grayscale(1) blur(1px);
+                    &::before {
+                        background: #ffffffbd;
+                        transform: rotate(0) translateY(30px) translateX(-19px);
+                        width: 90%;
+                        margin: 30px;
+                        border-radius: 20px;
+                        background: #ffffff;
+                        box-shadow: inset 20px -20px 40px #ababab,
+                            inset -20px 20px 40px #ffffff;
+                    }
+
+                    .game-caption {
+                        bottom: 0;
+                        top: unset;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .game-image {
+        border-radius: 15px;
+        height: 200px;
+        background-position: center !important;
+        background-size: cover !important;
+        margin: 8px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+
+        &::before {
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            content: '';
+            background: #3b343427;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            transform: rotate(101deg) translateY(-50%);
+        }
+
+        .game-caption {
+            z-index: 1;
+            padding: 16px;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 100%;
+
+            p {
+                color: #001f3f;
+                padding-bottom: 8px;
+            }
+        }
+    }
+}

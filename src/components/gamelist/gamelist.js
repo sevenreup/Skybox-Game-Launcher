@@ -1,0 +1,52 @@
+import React, { PureComponent } from "react";
+import { withRouter, Link } from "react-router-dom";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import './gamelist.scss'
+
+class gamelist extends PureComponent {
+    render() {
+        const { title } = this.props;
+        return (
+            <div className="gamelist">
+                <h3>{title}</h3>
+                <div className="game-grid">
+                    {this.renderType()}
+                </div>
+            </div>
+        )
+    }
+
+    renderType() {
+        const { games, type } = this.props;
+        return games.map(game => {
+            switch (type) {
+                case 'circle':
+                    return (
+                        <Link to={`/game/${game.link}`} className="game-item">
+                            <div className="game-circle" key={game.link} >
+                                <div className="game-image" style={{ background: `url(${game.img}) no-repeat` }}>
+                                    <div className="game-caption">
+                                        <p>{game.name}</p>
+                                        <div className="play-btn">
+                                            <Link className="play">
+                                                <span><FontAwesomeIcon icon={faPlay} /> Play</span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    )
+                default:
+                    return (
+
+                        <div className="game-normal">other</div>
+                    )
+            }
+        })
+
+    }
+}
+
+export const GameList = withRouter(gamelist)
