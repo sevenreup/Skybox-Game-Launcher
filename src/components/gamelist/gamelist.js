@@ -23,7 +23,7 @@ class gamelist extends PureComponent {
             switch (type) {
                 case 'circle':
                     return (
-                        <Link to={`/game/${game.link}`} className="game-item">
+                        <Link to={{ pathname: game.link, state: { game: game } }} className="game-item">
                             <div className="game-circle" key={game.link} >
                                 <div className="game-image" style={{ background: `url(${game.img}) no-repeat` }}>
                                     <div className="game-caption">

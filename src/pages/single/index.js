@@ -1,7 +1,16 @@
-import React from "react";
+import React, { PureComponent } from "react";
+import { GameHero } from "../../components/gamehero/gamehero";
+import { withRouter } from "react-router-dom";
 
-export default function Single() {
-    return (
-        <div>Single</div>
-    )
+class Single extends PureComponent {
+    render() {
+        const { game } = this.props.location.state;
+        return (
+            <div>
+                <GameHero game={game}/>
+                <div>stuff</div>
+            </div>
+        )
+    }
 }
+export default withRouter(Single);

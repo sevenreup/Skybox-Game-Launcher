@@ -12,6 +12,7 @@ $height: 300px;
     .wallpaper {
         position: absolute;
         top: 0px;
+        right: 0px;
         z-index: -10;
         overflow: hidden;
         width: 100vw;
@@ -41,13 +42,6 @@ $height: 300px;
             background: #ffffff;
             box-shadow: inset -14px 14px 41px #c4c4c4, inset 14px -14px 41px #ffffff;
             padding: 15px;
-
-            .pill {
-                color: white;
-                background: #292929;
-                box-shadow: inset -8px 8px 15px #202020,
-                    inset 8px -8px 15px #323232;
-            }
 
             .hero-title {
                 margin: 20px 0px;

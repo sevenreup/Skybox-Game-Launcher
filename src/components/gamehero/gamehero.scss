@@ -1,0 +1,65 @@
+$height: 500px;
+
+.game-single-hero {
+    .single-wallpaper {
+        position: absolute;
+        top: 0px;
+        z-index: -10;
+        right: 0px;
+        overflow: hidden;
+        background-position: 50% 0% !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        opacity: 0.8;
+        height: $height;
+        filter: brightness(0.5) grayscale(1) blur(1px);
+        width: 100%;
+    }
+
+    .single-header {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: 300px 60px;
+        grid-template-areas: "caption preview""slide slide";
+        height: $height;
+        padding: 30px;
+        padding-top: 60px;
+
+        .single-caption {
+            padding: 20px;
+
+            p {
+                margin: 3rem auto;
+            }
+        }
+
+        .single-preview {
+            .preview-container {
+                display: flex;
+
+                img {
+                    height: 300px;
+                    margin: auto;
+                }
+            }
+        }
+
+        .single-carousel {
+            grid-area: slide;
+            margin-top: 20px;
+            .carousel-holder {
+                display: grid;
+                grid-template-columns: 670px 30px;
+                svg {
+                    margin: auto;
+                }
+                .image-holder {
+                    img {
+                        padding: 10px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

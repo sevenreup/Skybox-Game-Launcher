@@ -35,7 +35,7 @@ class sidebar extends PureComponent {
                             this.games.map(game => {
                                 return (
                                     <ListGroup.Item key={game.name} className="pin-game">
-                                        <Link to={game.link}>
+                                        <Link to={{ pathname: game.link, state: { game: game } }}>
                                             <span><img src={game.img} /></span>
                                         </Link>
                                     </ListGroup.Item>
