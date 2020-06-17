@@ -20,7 +20,7 @@ function Full(props) {
     const [activecarousel, setActivecarousel] = useState(carousel[0])
 
     if (!loading) {
-        if (data.vibrant) {
+        if (data.vibrant != undefined) {
             const colors = { primary: '', shadow: {} }
             colors.primary = data.vibrant
             console.log(data.vibrant);
