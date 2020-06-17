@@ -4,7 +4,8 @@ import { faHome, faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './sidebar.scss'
 import { connect } from "react-redux";
-import { Navbar, Form, FormControl, Nav, ListGroup } from 'react-bootstrap'
+import { Nav, ListGroup } from 'react-bootstrap'
+import { GameIconButton, GamePinnedButton } from '../buttons/playbutton';
 
 class sidebar extends PureComponent {
     games = [
@@ -14,22 +15,17 @@ class sidebar extends PureComponent {
         { name: "four", img: "image/image4.jpg", link: "/game/4" },
     ]
     render() {
-        console.log(this.props.color.activeGamePrimary);
-        
+        const { activeGameColors } = this.props.color;
         return (
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
                 <Nav.Item>
                     <Link to="/">
-                        <div className="icon-btn btn-xl">
-                            <FontAwesomeIcon icon={faHome} />
-                        </div>
+                        <GameIconButton icon={faHome} color={activeGameColors.primary} />
                     </Link>
                 </Nav.Item>
                 <Nav.Item className="all">
                     <Link to="/all">
-                        <div className="icon-btn btn-xl neu"  style={{color: this.props.color.activeGamePrimary}}>
-                            <FontAwesomeIcon icon={faGamepad} />
-                        </div>
+                        <GameIconButton icon={faGamepad} color={activeGameColors.primary} />
                     </Link>
                 </Nav.Item>
                 <Nav.Item className="pinnedGames">
@@ -37,11 +33,7 @@ class sidebar extends PureComponent {
                         {
                             this.games.map(game => {
                                 return (
-                                    <ListGroup.Item key={game.name} className="pin-game">
-                                        <Link to={{ pathname: game.link, state: { game: game } }}>
-                                            <span><img src={game.img} /></span>
-                                        </Link>
-                                    </ListGroup.Item>
+                                    <GamePinnedButton  key={game.name} game={game} shadow={activeGameColors.shadow}/>
                                 )
                             })
                         }

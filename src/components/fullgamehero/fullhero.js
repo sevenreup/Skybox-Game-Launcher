@@ -5,6 +5,7 @@ import './fullhero.scss'
 import { usePalette } from 'react-palette';
 import { connect } from "react-redux";
 import { changeActivePrimary } from '../../redux/actions';
+import chroma from 'chroma-js'
 
 function Full(props) {
     const { game } = props;
@@ -18,7 +19,13 @@ function Full(props) {
     const fakeGenre = ["one", "two", "three"]
     const [activecarousel, setActivecarousel] = useState(carousel[0])
 
-    if (!loading) props.changeActivePrimary(data.vibrant)
+    if (!loading) {
+        const colors = { primary: '', shadow: {}}
+        colors.primary = data.vibrant
+        colors.shadow.first = chroma(data.vibrant).brighten(1);
+        colors.shadow.second = chroma(data.vibrant).brighten(3);
+        props.changeActivePrimary(colors)
+    }
     
     return (
         <div className="full-container">

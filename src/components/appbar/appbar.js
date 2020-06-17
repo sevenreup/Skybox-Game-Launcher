@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './appbar.scss';
 import styled from 'styled-components'
 import { withRouter, matchPath, Link } from 'react-router-dom';
+import { GameIconButton } from '../buttons/playbutton';
+import { connect } from 'react-redux';
 
 
 class NavBar extends PureComponent {
@@ -41,6 +43,7 @@ class NavBar extends PureComponent {
     }
     render() {
         const { home, gamePage } = this.state;
+        const {activeGameColors} = this.props.color;
         return (
             <Navbar expand="lg" fixed="top" className="appbar">
                 <div className="appbar-content">
@@ -48,7 +51,7 @@ class NavBar extends PureComponent {
                         {
                             home && (
                                 <Navbar.Brand onClick={this.goBack.bind(this)}>
-                                    <FontAwesomeIcon icon={faChevronCircleLeft} />
+                                    <GameIconButton icon={faChevronCircleLeft} color={activeGameColors.primary}/>
                                 </Navbar.Brand>
                             )
                         }
@@ -66,9 +69,7 @@ class NavBar extends PureComponent {
                     </div>
                     <div className="appbar-end">
                         <Link to="/settings">
-                            <Navbar.Brand>
-                                <FontAwesomeIcon icon={faGhost} />
-                            </Navbar.Brand>
+                            <GameIconButton icon={faGhost} color={activeGameColors.primary}/>
                         </Link>
                     </div>
                 </div>
@@ -77,4 +78,6 @@ class NavBar extends PureComponent {
     }
 }
 
-export const NavigationBar = withRouter(NavBar);
+const mapStateToProp = state => { return { color: state.color } }
+
+export const NavigationBar = connect(mapStateToProp, null)(withRouter(NavBar));

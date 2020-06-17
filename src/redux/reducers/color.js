@@ -1,7 +1,7 @@
 import { ACTIVE_GAME_PRIMARY_COLOR } from "../actiontypes"
 
 const initialState = {
-    activeGamePrimary: ''
+    activeGameColors: {}
 }
 
 export default function(state = initialState, action) {
@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
             const data = action.payload;
             return {
                 ...state,
-                activeGamePrimary: data
+                activeGameColors: data
             }
         default:
             return state;
