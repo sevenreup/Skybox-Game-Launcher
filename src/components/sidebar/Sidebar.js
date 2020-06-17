@@ -3,6 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { faHome, faGamepad } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './sidebar.scss'
+import { connect } from "react-redux";
 import { Navbar, Form, FormControl, Nav, ListGroup } from 'react-bootstrap'
 
 class sidebar extends PureComponent {
@@ -13,6 +14,8 @@ class sidebar extends PureComponent {
         { name: "four", img: "image/image4.jpg", link: "/game/4" },
     ]
     render() {
+        console.log(this.props.color.activeGamePrimary);
+        
         return (
             <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
                 <Nav.Item>
@@ -24,7 +27,7 @@ class sidebar extends PureComponent {
                 </Nav.Item>
                 <Nav.Item className="all">
                     <Link to="/all">
-                        <div className="icon-btn btn-xl neu">
+                        <div className="icon-btn btn-xl neu"  style={{color: this.props.color.activeGamePrimary}}>
                             <FontAwesomeIcon icon={faGamepad} />
                         </div>
                     </Link>
@@ -49,5 +52,6 @@ class sidebar extends PureComponent {
         )
     }
 }
+const mapStateToProp = state => { return { color: state.color } }
 
-export const SideBar = withRouter(sidebar)
+export const SideBar = connect(mapStateToProp, null)(withRouter(sidebar))

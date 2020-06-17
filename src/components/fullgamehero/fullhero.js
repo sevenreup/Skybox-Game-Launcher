@@ -3,8 +3,10 @@ import { withRouter } from "react-router-dom";
 import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 import './fullhero.scss'
 import { usePalette } from 'react-palette';
+import { connect } from "react-redux";
+import { changeActivePrimary } from '../../redux/actions';
 
-export function FullHero(props) {
+function Full(props) {
     const { game } = props;
     const { data, loading, error } = usePalette('/' + game.img)
     const carousel = [
@@ -16,6 +18,8 @@ export function FullHero(props) {
     const fakeGenre = ["one", "two", "three"]
     const [activecarousel, setActivecarousel] = useState(carousel[0])
 
+    if (!loading) props.changeActivePrimary(data.vibrant)
+    
     return (
         <div className="full-container">
             <div className="wallpaper" style={{ background: `url(/${game.img})` }}></div>
@@ -69,3 +73,6 @@ export function FullHero(props) {
         </div>
     )
 }
+
+
+export const FullHero = connect(null, { changeActivePrimary })(Full)
