@@ -1,4 +1,6 @@
 .appbar {
+    padding-top: 0px;
+
     .appbar-content {
         display: grid;
         grid-template-columns: 80px auto 80px;
@@ -8,9 +10,14 @@
         .appbar-start {
             grid-area: start;
         }
+
         .appbar-center {
             grid-area: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column-reverse;
         }
+
         .appbar-end {
             grid-area: end;
         }

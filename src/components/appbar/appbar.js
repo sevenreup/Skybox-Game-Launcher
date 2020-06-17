@@ -1,6 +1,6 @@
 import React, { Component, PureComponent } from 'react';
 import { Navbar, Nav } from 'react-bootstrap'
-import { faGhost, faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faGhost, faChevronCircleLeft, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './appbar.scss';
 import styled from 'styled-components'
@@ -15,11 +15,9 @@ class NavBar extends PureComponent {
             gamePage: false
         }
     }
-    componentWillMount() {
-        this.onRouteChanged('/');
-        this.checkIfGamePage('/');
-    }
     componentDidMount() {
+        this.onRouteChanged(this.props.location.pathname);
+        this.checkIfGamePage(this.props.location.pathname);
         this.props.history.listen((location, action) => {
             this.onRouteChanged(location.pathname)
             this.checkIfGamePage(location.pathname);
@@ -58,7 +56,11 @@ class NavBar extends PureComponent {
                     <div className="appbar-center">
                         {
                             gamePage && (
-                                <div>game page</div>
+                                <div className="game-controls">
+                                    {/* <span className="play">
+                                        <span><FontAwesomeIcon icon={faPlay} /> Play</span>
+                                    </span> */}
+                                </div>
                             )
                         }
                     </div>

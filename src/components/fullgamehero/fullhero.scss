@@ -13,7 +13,7 @@ $height: 100%;
         background-size: cover !important;
         background-repeat: no-repeat !important;
         opacity: 0.8;
-        filter: brightness(0.5) grayscale(0.3) blur(3px) contrast(1);
+        filter: brightness(0.4);
 
     }
 
@@ -26,5 +26,48 @@ $height: 100%;
         right: 0px;
         overflow: hidden;
         filter: brightness(0.5) grayscale(0.3) blur(3px);
+    }
+
+    .hero-content {
+        margin-top: 80px;
+        color: white;
+        .caption-holder {
+            padding: 80px;
+            .title {
+                margin-top: 20px;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0px;
+                padding: 0em;
+                li {
+                    margin: 20px auto;
+                    span {
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+                    }
+                    .pill {
+                        margin: auto 5px;
+                    }
+                }
+            }
+        }
+        .moment-holder {
+            padding: 30px;
+            .carousel {
+                img {
+                    width: 100%;
+                }
+            }
+            .carousel-indiactor {
+                padding: 30px;
+                img {
+                    height: 80px;
+                    padding: 10px;
+                }
+            }
+        }
     }
 }

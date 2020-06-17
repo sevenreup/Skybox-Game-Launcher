@@ -9,7 +9,6 @@ class Single extends PureComponent {
         return (
             <div>
                 <FullHero game={game}/>
-                <div>stuff</div>
             </div>
         )
     }
