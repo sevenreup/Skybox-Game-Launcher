@@ -20,16 +20,20 @@ function Full(props) {
     const [activecarousel, setActivecarousel] = useState(carousel[0])
 
     if (!loading) {
-        const colors = { primary: '', shadow: {}}
-        colors.primary = data.vibrant
-        colors.shadow.first = chroma(data.vibrant).brighten(1);
-        colors.shadow.second = chroma(data.vibrant).brighten(3);
-        props.changeActivePrimary(colors)
+        if (data.vibrant) {
+            const colors = { primary: '', shadow: {} }
+            colors.primary = data.vibrant
+            console.log(data.vibrant);
+
+            colors.shadow.first = chroma(data.vibrant).brighten(1);
+            colors.shadow.second = chroma(data.vibrant).brighten(3);
+            props.changeActivePrimary(colors)
+        }
     }
-    
+
     return (
         <div className="full-container">
-            <div className="wallpaper" style={{ background: `url(/${game.img})` }}></div>
+            <div className="wallpaper" style={{ background: `url(${game.img})` }}></div>
             <div className="overlay" style={{ boxShadow: !loading ? `inset 0px -500px 120px ${data.vibrant}` : `inset 0px -500px 120px rgba(41, 177, 231, 0.9) ` }}></div>
             <Container fluid className="hero-content">
                 <Row>

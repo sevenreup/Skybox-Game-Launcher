@@ -9,10 +9,10 @@ import { GameIconButton, GamePinnedButton } from '../buttons/playbutton';
 
 class sidebar extends PureComponent {
     games = [
-        { name: "one", img: "image/image1.jpg", link: "/game/1" },
-        { name: "two", img: "image/image2.jpg", link: "/game/2" },
-        { name: "three", img: "image/image3.jpg", link: "/game/3" },
-        { name: "four", img: "image/image4.jpg", link: "/game/4" },
+        { name: "one", img: "/image/image1.jpg", link: "/game/1" },
+        { name: "two", img: "/image/image2.jpg", link: "/game/2" },
+        { name: "three", img: "/image/image3.jpg", link: "/game/3" },
+        { name: "four", img: "/image/image4.jpg", link: "/game/4" },
     ]
     render() {
         const { activeGameColors } = this.props.color;
