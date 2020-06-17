@@ -5,16 +5,16 @@ import { Nav, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
 function GameIconButton(props) {
-    const { icon, color } = props
+    const { icon, color , className } = props
     return (
-        <Gameicon className="icon-btn btn-xl" color={color}>
+        <Gameicon color={color} className={`icon-btn btn-xl ${className}`}>
             <FontAwesomeIcon icon={icon} />
         </Gameicon>
     )
 }
 
 function GamePinnedButton(props) {
-    const { shadow, game } = props;
+    const { shadow, game} = props;
 
     return (
         <Pinnedicon shadow={shadow}>

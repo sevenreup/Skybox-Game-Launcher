@@ -3,7 +3,7 @@
 
     .appbar-content {
         display: grid;
-        grid-template-columns: 80px auto 80px;
+        grid-template-columns: 80px auto 200px;
         grid-template-areas: "start center end";
         width: 100%;
 
@@ -20,6 +20,12 @@
 
         .appbar-end {
             grid-area: end;
+            background: white;
+            display: grid;
+            grid-template-columns: auto auto;
+            .settings {
+                margin: 0px;
+            }
         }
     }
 }

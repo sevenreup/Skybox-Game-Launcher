@@ -1,7 +1,9 @@
-import { ACTIVE_GAME_PRIMARY_COLOR } from "../actiontypes"
+import { ACTIVE_GAME_PRIMARY_COLOR, CHANGE_THEME } from "../actiontypes"
+import { lightTheme } from "../../theme/theme";
 
 const initialState = {
-    activeGameColors: {}
+    activeGameColors: {},
+    theme: lightTheme
 }
 
 export default function(state = initialState, action) {
@@ -12,6 +14,11 @@ export default function(state = initialState, action) {
                 ...state,
                 activeGameColors: data
             }
+        case CHANGE_THEME:
+        return {
+            ...state,
+            theme: action.payload
+        }
         default:
             return state;
     }

@@ -3,10 +3,12 @@ import { Navbar, Nav } from 'react-bootstrap'
 import { faGhost, faChevronCircleLeft, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './appbar.scss';
+import { changeTheme } from '../../redux/actions';
 import styled from 'styled-components'
 import { withRouter, matchPath, Link } from 'react-router-dom';
 import { GameIconButton } from '../buttons/playbutton';
 import { connect } from 'react-redux';
+import { lightTheme, darkTheme } from '../../theme/theme';
 
 
 class NavBar extends PureComponent {
@@ -41,6 +43,17 @@ class NavBar extends PureComponent {
     goBack() {
         this.props.history.goBack();
     }
+
+    toggleTheme() {
+        const { theme } = this.props.color;
+
+        if (theme === lightTheme) {
+            this.props.changeTheme(darkTheme)
+        } else {
+            this.props.changeTheme(lightTheme)
+        }
+    }
+
     render() {
         const { home, gamePage } = this.state;
         const {activeGameColors} = this.props.color;
@@ -68,9 +81,13 @@ class NavBar extends PureComponent {
                         }
                     </div>
                     <div className="appbar-end">
+                        <div className="themer">
+                            <div onClick={this.toggleTheme.bind(this)}>change theme</div>
+                        </div>
                         <Link to="/settings">
-                            <GameIconButton icon={faGhost} color={activeGameColors.primary}/>
+                            <GameIconButton className="settings" icon={faGhost} color={activeGameColors.primary}/>
                         </Link>
+                        
                     </div>
                 </div>
             </Navbar>
@@ -80,4 +97,4 @@ class NavBar extends PureComponent {
 
 const mapStateToProp = state => { return { color: state.color } }
 
-export const NavigationBar = connect(mapStateToProp, null)(withRouter(NavBar));
+export const NavigationBar = connect(mapStateToProp, { changeTheme })(withRouter(NavBar));
