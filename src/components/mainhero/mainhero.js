@@ -13,9 +13,9 @@ class hero extends PureComponent {
                     <div className="holder">
                         <span className="pill">Last Played</span>
                         <h3 className="hero-title">League Of Legends</h3>
-                        <Link className="play">
+                        <a className="play">
                             <span><FontAwesomeIcon icon={faPlay}/> Play</span>
-                        </Link>
+                        </a>
                     </div>
 
                 </div>
