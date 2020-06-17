@@ -1,0 +1,18 @@
+.appbar {
+    .appbar-content {
+        display: grid;
+        grid-template-columns: 80px auto 80px;
+        grid-template-areas: "start center end";
+        width: 100%;
+
+        .appbar-start {
+            grid-area: start;
+        }
+        .appbar-center {
+            grid-area: center;
+        }
+        .appbar-end {
+            grid-area: end;
+        }
+    }
+}

@@ -29,9 +29,9 @@ class gamelist extends PureComponent {
                                     <div className="game-caption">
                                         <p>{game.name}</p>
                                         <div className="play-btn">
-                                            <Link className="play">
+                                            <a className="play">
                                                 <span><FontAwesomeIcon icon={faPlay} /> Play</span>
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
