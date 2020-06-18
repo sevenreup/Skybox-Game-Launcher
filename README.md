@@ -1,4 +1,4 @@
-## Color Launcher
+## Skybox Game Launcher
 
 This an electron based launcher made using React. Still a work in progress to finish and make it cross platform (Onl windows as of now, mac and linux coming soon)
 
