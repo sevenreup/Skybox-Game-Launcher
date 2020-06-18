@@ -3,6 +3,8 @@ import { withRouter, Link } from "react-router-dom";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './gamelist.scss'
+import { NormalGridStyled } from "./gamelist.styled";
+import { GamePlayButtonMain } from "../buttons/playbutton";
 
 class gamelist extends PureComponent {
     render() {
@@ -23,20 +25,20 @@ class gamelist extends PureComponent {
             switch (type) {
                 case 'circle':
                     return (
-                        <Link key={game.link} to={{ pathname: game.link, state: { game: game } }} className="game-item">
-                            <div className="game-circle" >
-                                <div className="game-image" style={{ background: `url(${game.img}) no-repeat` }}>
-                                    <div className="game-caption">
-                                        <p>{game.name}</p>
-                                        <div className="play-btn">
-                                            <span className="play">
-                                                <span><FontAwesomeIcon icon={faPlay} /> Play</span>
-                                            </span>
+                        <NormalGridStyled>
+                            <Link key={game.link} to={{ pathname: game.link, state: { game: game } }} className="game-item">
+                                <div className="game-circle" >
+                                    <div className="game-image" style={{ background: `url(${game.img}) no-repeat` }}>
+                                        <div className="game-caption">
+                                            <p>{game.name}</p>
+                                            <div className="play-btn">
+                                                <GamePlayButtonMain />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
+                        </NormalGridStyled>
                     )
                 default:
                     return (

@@ -4,11 +4,11 @@ import { faGhost, faChevronCircleLeft, faPlay } from "@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './appbar.scss';
 import { changeTheme } from '../../redux/actions';
-import styled from 'styled-components'
 import { withRouter, matchPath, Link } from 'react-router-dom';
 import { GameIconButton } from '../buttons/playbutton';
 import { connect } from 'react-redux';
 import { lightTheme, darkTheme } from '../../theme/theme';
+import { EndBarSectionStyled } from './appbar.styled';
 
 
 class NavBar extends PureComponent {
@@ -56,7 +56,7 @@ class NavBar extends PureComponent {
 
     render() {
         const { home, gamePage } = this.state;
-        const {activeGameColors} = this.props.color;
+        const { activeGameColors } = this.props.color;
         return (
             <Navbar expand="lg" fixed="top" className="appbar">
                 <div className="appbar-content">
@@ -64,7 +64,7 @@ class NavBar extends PureComponent {
                         {
                             home && (
                                 <Navbar.Brand onClick={this.goBack.bind(this)}>
-                                    <GameIconButton icon={faChevronCircleLeft} color={activeGameColors.primary}/>
+                                    <GameIconButton icon={faChevronCircleLeft} color={activeGameColors.primary} />
                                 </Navbar.Brand>
                             )
                         }
@@ -80,15 +80,14 @@ class NavBar extends PureComponent {
                             )
                         }
                     </div>
-                    <div className="appbar-end">
+                    <EndBarSectionStyled className="appbar-end">
                         <div className="themer">
                             <div onClick={this.toggleTheme.bind(this)}>change theme</div>
                         </div>
                         <Link to="/settings">
-                            <GameIconButton className="settings" icon={faGhost} color={activeGameColors.primary}/>
+                            <GameIconButton className="settings" icon={faGhost} color={activeGameColors.primary} />
                         </Link>
-                        
-                    </div>
+                    </EndBarSectionStyled>
                 </div>
             </Navbar>
         )

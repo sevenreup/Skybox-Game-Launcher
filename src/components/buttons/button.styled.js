@@ -3,13 +3,13 @@ import styled from "styled-components"
 const Gameicon = styled.div`
 color: ${ props => props.color ? props.color : '#001f3fab'};
 margin: auto;
-background: linear-gradient(225deg, #e6e6e6, #ffffff);
-box-shadow: -8px 8px 13px #cfcfcf, 8px -8px 13px #ffffff;
+background: linear-gradient(225deg, ${({theme}) => theme.neushadow.bg.first + ', ' + theme.neushadow.bg.second});
+box-shadow: -8px 8px 13px ${({theme}) => theme.shadow.first}, 8px -8px 13px ${({theme}) => theme.shadow.second};
 
 &:focus,
 &:hover {
-    background: #ffffff;
-    box-shadow: inset -8px 8px 13px #cfcfcf, inset 8px -8px 13px #ffffff;
+    background: ${({theme}) => theme.neushadow.hover.bg};
+    box-shadow: inset -8px 8px 13px ${({theme}) => theme.neushadow.hover.first}, inset 8px -8px 13px ${({theme}) => theme.neushadow.hover.second};
 }
 `;
 
@@ -21,6 +21,7 @@ const Pinnedicon = styled.div`
     border: 0em;
 
     span {
+        margin: auto;
         display: flex;
         align-items: center;
         text-align: center;
@@ -55,4 +56,22 @@ const Pinnedicon = styled.div`
 }
 `
 
-export { Gameicon, Pinnedicon }
+const PlayButton = styled.span`
+    &:focus, 
+    &:hover {
+        span {
+            background: ${({theme}) => theme.neushadow.hover.bg};
+            box-shadow: inset -7px 7px 14px ${({theme}) => theme.neushadow.hover.first},
+                inset 7px -7px 14px ${({theme}) => theme.neushadow.hover.second};
+        }
+    }
+
+    span {
+        color: ${({theme}) => theme.text};
+        background: linear-gradient(225deg, ${({theme}) => theme.neushadow.bg.first + ', ' + theme.neushadow.bg.second});
+        box-shadow: -7px 7px 14px ${({theme}) => theme.shadow.first},
+            7px -7px 14px ${({theme}) => theme.shadow.second};
+    }
+`
+
+export { Gameicon, Pinnedicon, PlayButton }

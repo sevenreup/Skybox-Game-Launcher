@@ -16,15 +16,7 @@ $height: 300px;
         z-index: -10;
         overflow: hidden;
         width: 100vw;
-        background-image: url(/image/image2.jpg);
-        background-position: 50% 0%;
-        background-size: cover;
-        background-repeat: repeat;
-        opacity: 0.8;
         height: $height;
-        filter: brightness(0.5) grayscale(1) blur(1px);
-
-
     }
 
     .header-section {
@@ -39,8 +31,6 @@ $height: 300px;
             width: 50%;
             margin: 20px;
             border-radius: 25px;
-            background: #ffffff;
-            box-shadow: inset -14px 14px 41px #c4c4c4, inset 14px -14px 41px #ffffff;
             padding: 15px;
 
             .hero-title {

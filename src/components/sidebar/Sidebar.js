@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { faHome, faGamepad } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './sidebar.scss'
 import { connect } from "react-redux";
 import { Nav, ListGroup } from 'react-bootstrap'
 import { GameIconButton, GamePinnedButton } from '../buttons/playbutton';
+import StyledSidebar from './sidebar.styled';
 
 class sidebar extends PureComponent {
     games = [
@@ -17,30 +16,32 @@ class sidebar extends PureComponent {
     render() {
         const { activeGameColors } = this.props.color;
         return (
-            <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
-                <Nav.Item>
-                    <Link to="/">
-                        <GameIconButton icon={faHome} color={activeGameColors.primary} />
-                    </Link>
-                </Nav.Item>
-                <Nav.Item className="all">
-                    <Link to="/all">
-                        <GameIconButton icon={faGamepad} color={activeGameColors.primary} />
-                    </Link>
-                </Nav.Item>
-                <Nav.Item className="pinnedGames">
-                    <ListGroup variant="flush">
-                        {
-                            this.games.map(game => {
-                                return (
-                                    <GamePinnedButton  key={game.name} game={game} shadow={activeGameColors.shadow}/>
-                                )
-                            })
-                        }
-                    </ListGroup>
-                </Nav.Item>
+            <StyledSidebar>
+                <Nav className="col-md-12 d-none d-md-block sidebar">
+                    <Nav.Item>
+                        <Link to="/">
+                            <GameIconButton icon={faHome} color={activeGameColors.primary} />
+                        </Link>
+                    </Nav.Item>
+                    <Nav.Item className="all">
+                        <Link to="/all">
+                            <GameIconButton icon={faGamepad} color={activeGameColors.primary} />
+                        </Link>
+                    </Nav.Item>
+                    <Nav.Item className="pinnedGames">
+                        <ListGroup variant="flush">
+                            {
+                                this.games.map(game => {
+                                    return (
+                                        <GamePinnedButton key={game.name} game={game} shadow={activeGameColors.shadow} />
+                                    )
+                                })
+                            }
+                        </ListGroup>
+                    </Nav.Item>
 
-            </Nav>
+                </Nav>
+            </StyledSidebar>
         )
     }
 }

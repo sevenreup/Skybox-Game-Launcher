@@ -1,11 +1,12 @@
 import React from 'react'
-import { Gameicon, Pinnedicon } from "./button.styled"
+import { Gameicon, Pinnedicon, PlayButton } from "./button.styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Nav, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 function GameIconButton(props) {
-    const { icon, color , className } = props
+    const { icon, color, className } = props
     return (
         <Gameicon color={color} className={`icon-btn btn-xl ${className}`}>
             <FontAwesomeIcon icon={icon} />
@@ -14,7 +15,7 @@ function GameIconButton(props) {
 }
 
 function GamePinnedButton(props) {
-    const { shadow, game} = props;
+    const { shadow, game } = props;
 
     return (
         <Pinnedicon shadow={shadow}>
@@ -27,4 +28,12 @@ function GamePinnedButton(props) {
     )
 }
 
-export { GameIconButton, GamePinnedButton }
+function GamePlayButtonMain(props) {
+    return (
+        <PlayButton className="play">
+            <span><FontAwesomeIcon icon={faPlay} /> Play</span>
+        </PlayButton>
+    )
+}
+
+export { GameIconButton, GamePinnedButton, GamePlayButtonMain }
