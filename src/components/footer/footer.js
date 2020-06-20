@@ -1,9 +1,11 @@
 import React, { PureComponent } from "react";
 import { withRouter, matchPath } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
-import { faGhost, faChevronCircleLeft, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faCog, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './footer.scss'
+import { FooterStyled } from "./footer.styled";
+import { GamePlayButtonMain } from "../buttons/playbutton";
 
 class footer extends PureComponent {
     constructor(props) {
@@ -29,18 +31,22 @@ class footer extends PureComponent {
     render() {
         const { gamePage } = this.state;
         return (
-            <Navbar expand="lg" fixed="bottom" className="footer">
-                <Navbar.Collapse className="justify-content-center">
-                    {
-                        gamePage &&
-                        <div className="bottom-holder">
-                            <span className="play">
-                                <span><FontAwesomeIcon icon={faPlay} />Play</span>
-                            </span>
-                        </div>
-                    }
-                </Navbar.Collapse>
-            </Navbar>
+            <FooterStyled>
+                <Navbar expand="lg" fixed="bottom" className="footer">
+                    <Navbar.Collapse className="justify-content-center">
+                        {
+                            gamePage && (
+                            <div className="bottom-holder">
+                                <GamePlayButtonMain />
+                                <div>
+                                    <FontAwesomeIcon icon={faPencilAlt}/>
+                                </div>
+                            </div>
+                            )
+                        }
+                    </Navbar.Collapse>
+                </Navbar>
+            </FooterStyled>
         )
     }
 }

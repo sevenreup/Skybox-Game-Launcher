@@ -1,9 +1,11 @@
 import React from 'react'
-import { Gameicon, Pinnedicon, PlayButton } from "./button.styled"
+import { Gameicon, Pinnedicon, PlayButton, ToggleStyled } from "./button.styled"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Nav, ListGroup } from 'react-bootstrap'
+import { func, object } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { lightTheme } from '../../theme/theme';
 
 function GameIconButton(props) {
     const { icon, color, className } = props
@@ -36,4 +38,19 @@ function GamePlayButtonMain(props) {
     )
 }
 
-export { GameIconButton, GamePinnedButton, GamePlayButtonMain }
+function ThemeToggle({theme, toggleTheme}) {
+    const isLight = lightTheme;
+    return (
+        <ToggleStyled onClick={toggleTheme}>
+            <FontAwesomeIcon className="light" icon={faSun} />
+            <FontAwesomeIcon className="dark" icon={faMoon} />
+        </ToggleStyled>
+    )
+}
+
+ThemeToggle.propTypes = {
+    theme: object.isRequired,
+    toggleTheme: func.isRequired
+}
+
+export { GameIconButton, GamePinnedButton, GamePlayButtonMain, ThemeToggle }
