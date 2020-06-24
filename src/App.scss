@@ -1,9 +1,5 @@
 $side-width:80px;
 
-* {
-    transition: all 0.5s ease;
-}
-
 .wrapper {
     display: flex;
     width: 100%;
@@ -28,7 +24,6 @@ $side-width:80px;
     .content {
         width: 100%;
         min-height: 100vh;
-        transition: all 0.3s;
         margin-left: $side-width;
     }
 }

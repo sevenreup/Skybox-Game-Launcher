@@ -16,6 +16,15 @@ function GameIconButton(props) {
     )
 }
 
+function GameiconAltButton(props) {
+    const { icon, color, className } = props
+    return (
+        <Gameicon color={color} className={`icon-btn btn-xl ${className}`}>
+            <FontAwesomeIcon icon={icon} />
+        </Gameicon>
+    )
+}
+
 function GamePinnedButton(props) {
     const { shadow, game } = props;
 
@@ -38,7 +47,7 @@ function GamePlayButtonMain(props) {
     )
 }
 
-function ThemeToggle({theme, toggleTheme}) {
+function ThemeToggle({ theme, toggleTheme }) {
     const isLight = lightTheme;
     return (
         <ToggleStyled onClick={toggleTheme}>
@@ -53,4 +62,4 @@ ThemeToggle.propTypes = {
     toggleTheme: func.isRequired
 }
 
-export { GameIconButton, GamePinnedButton, GamePlayButtonMain, ThemeToggle }
+export { GameIconButton, GameiconAltButton,GamePinnedButton, GamePlayButtonMain, ThemeToggle }

@@ -32,7 +32,7 @@ const NormalGridStyled = styled.div`
     .game-caption {
        
         p {
-            color: #001f3f;
+            color: ${({theme}) => theme.text};
             padding-bottom: 8px;
         }
     }

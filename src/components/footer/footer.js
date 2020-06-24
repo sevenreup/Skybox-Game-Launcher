@@ -5,7 +5,7 @@ import { faCog, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './footer.scss'
 import { FooterStyled } from "./footer.styled";
-import { GamePlayButtonMain } from "../buttons/playbutton";
+import { GamePlayButtonMain, GameiconAltButton } from "../buttons/playbutton";
 
 class footer extends PureComponent {
     constructor(props) {
@@ -36,12 +36,10 @@ class footer extends PureComponent {
                     <Navbar.Collapse className="justify-content-center">
                         {
                             gamePage && (
-                            <div className="bottom-holder">
-                                <GamePlayButtonMain />
-                                <div>
-                                    <FontAwesomeIcon icon={faPencilAlt}/>
+                                <div className="bottom-holder">
+                                    <GamePlayButtonMain />
+                                    <GameiconAltButton icon={faPencilAlt} className="edit-game"/>
                                 </div>
-                            </div>
                             )
                         }
                     </Navbar.Collapse>
