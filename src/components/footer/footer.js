@@ -7,12 +7,14 @@ import './footer.scss'
 import { FooterStyled } from "./footer.styled";
 import { GamePlayButtonMain, GameiconAltButton } from "../buttons/playbutton";
 import { connect } from "react-redux";
+import { GameSettings } from "../gamesettings/gamesettings";
 
 class footer extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            gamePage: false
+            gamePage: false,
+            showSettings: false
         }
     }
     componentDidMount() {
@@ -30,7 +32,7 @@ class footer extends PureComponent {
     }
 
     render() {
-        const { gamePage } = this.state;
+        const { gamePage, showSettings } = this.state;
         const { activeGameColors } = this.props.color;
         return (
             <FooterStyled>
@@ -40,7 +42,8 @@ class footer extends PureComponent {
                             gamePage && (
                                 <div className="bottom-holder">
                                     <GamePlayButtonMain />
-                                    <GameiconAltButton icon={faPencilAlt} color={activeGameColors} className="edit-game"/>
+                                    <GameiconAltButton onClick={() => this.setState({ showSettings: true})} icon={faPencilAlt} color={activeGameColors} className="edit-game"/>
+                                    <GameSettings show={showSettings} onHide={() => this.setState({ showSettings: false})}/>
                                 </div>
                             )
                         }

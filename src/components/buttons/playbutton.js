@@ -17,9 +17,9 @@ function GameIconButton(props) {
 }
 
 function GameiconAltButton(props) {
-    const { icon, color, className } = props
+    const { icon, color, className, onClick } = props
     return (
-        <Gameicon color={color} className={`icon-btn btn-xl ${className}`}>
+        <Gameicon onClick={onClick} color={color} className={`icon-btn btn-xl ${className}`}>
             <FontAwesomeIcon icon={icon} />
         </Gameicon>
     )
