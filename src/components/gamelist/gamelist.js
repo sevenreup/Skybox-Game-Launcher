@@ -25,8 +25,8 @@ class gamelist extends PureComponent {
             switch (type) {
                 case 'circle':
                     return (
-                        <NormalGridStyled>
-                            <Link key={game.link} to={{ pathname: game.link, state: { game: game } }} className="game-item">
+                        <NormalGridStyled key={game.link}>
+                            <Link to={{ pathname: game.link, state: { game: game } }} className="game-item">
                                 <div className="game-circle" >
                                     <div className="game-image" style={{ background: `url(${game.img}) no-repeat` }}>
                                         <div className="game-caption">

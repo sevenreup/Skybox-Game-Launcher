@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './footer.scss'
 import { FooterStyled } from "./footer.styled";
 import { GamePlayButtonMain, GameiconAltButton } from "../buttons/playbutton";
+import { connect } from "react-redux";
 
 class footer extends PureComponent {
     constructor(props) {
@@ -30,6 +31,7 @@ class footer extends PureComponent {
 
     render() {
         const { gamePage } = this.state;
+        const { activeGameColors } = this.props.color;
         return (
             <FooterStyled>
                 <Navbar expand="lg" fixed="bottom" className="footer">
@@ -38,7 +40,7 @@ class footer extends PureComponent {
                             gamePage && (
                                 <div className="bottom-holder">
                                     <GamePlayButtonMain />
-                                    <GameiconAltButton icon={faPencilAlt} className="edit-game"/>
+                                    <GameiconAltButton icon={faPencilAlt} color={activeGameColors} className="edit-game"/>
                                 </div>
                             )
                         }
@@ -48,5 +50,5 @@ class footer extends PureComponent {
         )
     }
 }
-
-export const Footer = withRouter(footer)
+const mapStateToProp = state => { return { color: state.color } }
+export const Footer = connect(mapStateToProp, null)(withRouter(footer))

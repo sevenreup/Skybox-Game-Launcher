@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from "react";
+import React, { PureComponent, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { Navbar, Nav, Container, Row, Col } from "react-bootstrap";
 import './fullhero.scss'
@@ -19,17 +19,19 @@ function Full(props) {
     const fakeGenre = ["one", "two", "three"]
     const [activecarousel, setActivecarousel] = useState(carousel[0])
 
-    if (!loading) {
-        if (data.vibrant != undefined) {
-            const colors = { primary: '', shadow: {} }
-            colors.primary = data.vibrant
-            console.log(data.vibrant);
+    useEffect(() => {
+        if (!loading) {
+            if (data.vibrant != undefined) {
+                const colors = { primary: '', shadow: {} }
+                colors.primary = data.vibrant
+                console.log(data.vibrant);
 
-            colors.shadow.first = chroma(data.vibrant).brighten(1);
-            colors.shadow.second = chroma(data.vibrant).brighten(3);
-            props.changeActivePrimary(colors)
+                colors.shadow.first = chroma(data.vibrant).brighten(1);
+                colors.shadow.second = chroma(data.vibrant).brighten(3);
+                props.changeColor(colors)
+            }
         }
-    }
+    })
 
     return (
         <div className="full-container">
@@ -85,5 +87,10 @@ function Full(props) {
     )
 }
 
+const mapDispatchToProp = dispatch => {
+    return {
+        changeColor: color => dispatch(changeActivePrimary(color))
+    }
+}
 
-export const FullHero = connect(null, { changeActivePrimary })(Full)
+export const FullHero = connect(null, mapDispatchToProp)(Full)
