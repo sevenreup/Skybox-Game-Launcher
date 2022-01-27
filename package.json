@@ -45,7 +45,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "styled-components": "^5.1.1",
-    "three": "^0.125.0",
+    "three": "^0.137.0",
     "tiny-emitter": "^2.1.0"
   },
   "scripts": {
